@@ -4,6 +4,6 @@ docker run --rm -it \
  -e CONFIG.CUSTOM_MODEL_MAX_TOKENS="32768" \
  -e CONFIG.DUPLICATE_EXAMPLES="true" \
  -e GITHUB.USER_TOKEN="<GITHUB_TOKEN>" \
- -e GITHUB.DEPLOYMENT_TYPE="user" \
+ -e GITHUB.DEPLOYMENT_TYPE="app" \
  -e OLLAMA.API_BASE="http://host.docker.internal:5000/v1" \
  codiumai/pr-agent:latest --pr_url <PR_URL_HERE> review
