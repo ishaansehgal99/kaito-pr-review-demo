@@ -19,16 +19,13 @@ jobs:
         uses: Codium-ai/pr-agent@main
         env:
           # Environment variables for running locally with kaito
-          CONFIG__MODEL: "hosted_vllm/qwen2.5-coder-7b-instruct"
-          CONFIG__FALLBACK_MODELS: "hosted_vllm/qwen2.5-coder-7b-instruct"
-          CONFIG__CUSTOM_MODEL_MAX_TOKENS: "32768"
-          CONFIG__DUPLICATE_EXAMPLES: "true"
+          CONFIG.MODEL: "hosted_vllm/qwen2.5-coder-7b-instruct"
+          CONFIG.FALLBACK_MODELS: "hosted_vllm/qwen2.5-coder-7b-instruct"
+          CONFIG.CUSTOM_MODEL_MAX_TOKENS: "32768"
+          CONFIG.DUPLICATE_EXAMPLES: "true"
           GITHUB_TOKEN: ${{ secrets.API_TOKEN }}
-          GITHUB__DEPLOYMENT_TYPE: "user"
-          OLLAMA__API_BASE: ${{ secrets.KAITO_PR_REVIEWER_WORKSPACE_URL }}
-
-          # Dynamically set PR_URL for review
-          PR_URL: ${{ github.event.pull_request.html_url }}
+          GITHUB.DEPLOYMENT_TYPE: "user"
+          OLLAMA.API_BASE: ${{ secrets.KAITO_PR_REVIEWER_WORKSPACE_URL }}
 
           # PR Agent configuration options
           pr_description.use_description_markers: "true"
