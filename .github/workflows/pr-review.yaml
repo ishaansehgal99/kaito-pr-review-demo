@@ -20,12 +20,21 @@ jobs:
         env:
           # Environment variables for running locally with kaito
           CONFIG.MODEL: "hosted_vllm/qwen2.5-coder-7b-instruct"
-          CONFIG.FALLBACK_MODELS: "hosted_vllm/qwen2.5-coder-7b-instruct"
+          CONFIG_MODEL: "hosted_vllm/qwen2.5-coder-7b-instruct"
+
           CONFIG.CUSTOM_MODEL_MAX_TOKENS: "32768"
+          CONFIG_CUSTOM_MODEL_MAX_TOKENS: "32768"
+
           CONFIG.DUPLICATE_EXAMPLES: "true"
+          CONFIG_DUPLICATE_EXAMPLES: "true"
+        
           GITHUB_TOKEN: ${{ secrets.API_TOKEN }}
+
           GITHUB.DEPLOYMENT_TYPE: "user"
+          GITHUB_DEPLOYMENT_TYPE: "user"
+
           OLLAMA.API_BASE: ${{ secrets.KAITO_PR_REVIEWER_WORKSPACE_URL }}
+          OLLAMA_API_BASE: ${{ secrets.KAITO_PR_REVIEWER_WORKSPACE_URL }}
 
           # PR Agent configuration options
           pr_description.use_description_markers: "true"
