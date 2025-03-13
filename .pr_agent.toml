@@ -1,0 +1,11 @@
+[config]
+model = "hosted_vllm/qwen2.5-coder-7b-instruct"
+fallback_models=["hosted_vllm/qwen2.5-coder-7b-instruct"]
+custom_model_max_tokens=32768 # set the maximal input tokens for the model
+duplicate_examples=true # will duplicate the examples in the prompt, to help the model to generate structured output
+
+[github]
+deployment_type = "user" #set to user by default
+
+[ollama]
+api_base = "http://localhost:5000/v1" # or whatever port you're running Ollama on
