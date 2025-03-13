@@ -19,13 +19,14 @@ jobs:
         uses: Codium-ai/pr-agent@main
         env:
           CONFIG.MODEL: "hosted_vllm/qwen2.5-coder-7b-instruct"
-          CONFIG.FALLBACK_MODELS: "hosted_vllm/qwen2.5-coder-7b-instruct"
+
           CONFIG.CUSTOM_MODEL_MAX_TOKENS: "32768"
           CONFIG.DUPLICATE_EXAMPLES: "true"
 
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB.USER_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          #   GITHUB.DEPLOYMENT_TYPE: "user"
+          GITHUB_TOKEN: ${{ secrets.API_TOKEN }}
+          GITHUB.USER_TOKEN: ${{ secrets.API_TOKEN }}
+          GITHUB.DEPLOYMENT_TYPE: "user"
+          
           OLLAMA.API_BASE: ${{ secrets.KAITO_PR_REVIEWER_WORKSPACE_URL }}
           litellm.set_verbose: True
         
