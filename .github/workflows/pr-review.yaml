@@ -7,6 +7,7 @@ on:
 
 jobs:
   pr_agent_job:
+    if: ${{ github.event.sender.type != 'Bot' }}
     runs-on: ubuntu-latest
     permissions:
       issues: write
@@ -17,6 +18,7 @@ jobs:
     - name: Check Model Endpoint
       run: |
         curl -X GET "${{ secrets.KAITO_PR_REVIEWER_WORKSPACE_URL }}/models" -v
+    
     - name: PR Agent action step
       id: pragent
       uses: Codium-ai/pr-agent@main
@@ -28,11 +30,10 @@ jobs:
 
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GITHUB.USER_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        # GITHUB.DEPLOYMENT_TYPE: "user"
 
         OLLAMA.API_BASE: ${{ secrets.KAITO_PR_REVIEWER_WORKSPACE_URL }}
         litellm.set_verbose: True
-        
+
           # PR Agent configuration options
         #   pr_description.use_description_markers: "true"
         #   pr_description.include_generated_by_header: "true"
