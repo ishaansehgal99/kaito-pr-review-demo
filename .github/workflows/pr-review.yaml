@@ -16,15 +16,23 @@ jobs:
     steps:
       - name: PR Agent action step
         id: pragent
-        uses: qodo-ai/pr-agent@main
+        uses: Codium-ai/pr-agent@main
         env:
-          litellm.set_verbose: True
-          config.model: "hosted_vllm/qwen2.5-coder-7b-instruct"
-          config.custom_model_max_tokens: "32768"
-          config.duplicate_examples: "true"
-          GITHUB.USER_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ollama.api_base: ${{ secrets.KAITO_PR_REVIEWER_WORKSPACE_URL }}
+            OPENAI_KEY: "test"
+            OPENAI_ORG: "test" # optional
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            PINECONE.API_KEY: "test"
+            PINECONE.ENVIRONMENT: "test"
+            GITHUB_ACTION_CONFIG.AUTO_DESCRIBE: true
+            GITHUB_ACTION_CONFIG.AUTO_REVIEW: true
+            GITHUB_ACTION_CONFIG.AUTO_IMPROVE: true
+        #   litellm.set_verbose: True
+        #   config.model: "hosted_vllm/qwen2.5-coder-7b-instruct"
+        #   config.custom_model_max_tokens: "32768"
+        #   config.duplicate_examples: "true"
+        #   GITHUB.USER_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        #   ollama.api_base: ${{ secrets.KAITO_PR_REVIEWER_WORKSPACE_URL }}
           
 
           # PR Agent configuration options
