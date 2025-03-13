@@ -18,23 +18,17 @@ jobs:
         id: pragent
         uses: Codium-ai/pr-agent@main
         env:
-            OPENAI_KEY: "test"
-            OPENAI_ORG: "test" # optional
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            PINECONE.API_KEY: "test"
-            PINECONE.ENVIRONMENT: "test"
-            GITHUB_ACTION_CONFIG.AUTO_DESCRIBE: true
-            GITHUB_ACTION_CONFIG.AUTO_REVIEW: true
-            GITHUB_ACTION_CONFIG.AUTO_IMPROVE: true
-        #   litellm.set_verbose: True
-        #   config.model: "hosted_vllm/qwen2.5-coder-7b-instruct"
-        #   config.custom_model_max_tokens: "32768"
-        #   config.duplicate_examples: "true"
-        #   GITHUB.USER_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        #   ollama.api_base: ${{ secrets.KAITO_PR_REVIEWER_WORKSPACE_URL }}
-          
+          CONFIG.MODEL: "hosted_vllm/qwen2.5-coder-7b-instruct"
+        #   CONFIG.FALLBACK_MODELS: "hosted_vllm/qwen2.5-coder-7b-instruct"
+          CONFIG.CUSTOM_MODEL_MAX_TOKENS: "32768"
+          CONFIG.DUPLICATE_EXAMPLES: "true"
 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB.USER_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          #   GITHUB.DEPLOYMENT_TYPE: "user"
+          OLLAMA.API_BASE: ${{ secrets.KAITO_PR_REVIEWER_WORKSPACE_URL }}
+          litellm.set_verbose: True
+        
           # PR Agent configuration options
         #   pr_description.use_description_markers: "true"
         #   pr_description.include_generated_by_header: "true"
