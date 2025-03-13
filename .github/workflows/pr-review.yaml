@@ -16,7 +16,7 @@ jobs:
     steps:
       - name: PR Agent action step
         id: pragent
-        uses: docker://codiumai/pr-agent:0.23-github_action
+        uses: docker://codiumai/pr-agent:latest
         env:
           litellm.set_verbose: True
           config.model: "hosted_vllm/qwen2.5-coder-7b-instruct"
