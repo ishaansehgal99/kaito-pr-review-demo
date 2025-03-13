@@ -18,13 +18,14 @@ jobs:
         id: pragent
         uses: Codium-ai/pr-agent@main
         env:
+          litellm.set_verbose: True
           config.model: "hosted_vllm/qwen2.5-coder-7b-instruct"
           config.custom_model_max_tokens: "32768"
           config.duplicate_examples: "true"
           GITHUB.USER_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ollama.api_base: ${{ secrets.KAITO_PR_REVIEWER_WORKSPACE_URL }}
-          litellm.set_verbose: True
+          OLLAMA.api_base: ${{ secrets.KAITO_PR_REVIEWER_WORKSPACE_URL }}
+          
 
           # PR Agent configuration options
         #   pr_description.use_description_markers: "true"
