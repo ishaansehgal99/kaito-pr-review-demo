@@ -19,7 +19,7 @@ jobs:
         uses: Codium-ai/pr-agent@main
         env:
           CONFIG.MODEL: "hosted_vllm/qwen2.5-coder-7b-instruct"
-        #   CONFIG.FALLBACK_MODELS: "hosted_vllm/qwen2.5-coder-7b-instruct"
+          CONFIG.FALLBACK_MODELS: "hosted_vllm/qwen2.5-coder-7b-instruct"
           CONFIG.CUSTOM_MODEL_MAX_TOKENS: "32768"
           CONFIG.DUPLICATE_EXAMPLES: "true"
 
