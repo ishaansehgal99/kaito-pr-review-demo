@@ -14,8 +14,6 @@ jobs:
       contents: write
     name: Run PR Agent on every pull request, respond to user comments
     steps:
-    - name: Get Public IP
-      run: curl ifconfig.me
     - name: Check Model Endpoint
       run: |
         curl -X GET "${{ secrets.KAITO_PR_REVIEWER_WORKSPACE_URL }}/models" -v
