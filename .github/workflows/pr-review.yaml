@@ -23,9 +23,9 @@ jobs:
           CONFIG.CUSTOM_MODEL_MAX_TOKENS: "32768"
           CONFIG.DUPLICATE_EXAMPLES: "true"
 
-          GITHUB_TOKEN: ${{ secrets.API_TOKEN }}
-          GITHUB.USER_TOKEN: ${{ secrets.API_TOKEN }}
-          GITHUB.DEPLOYMENT_TYPE: "user"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB.USER_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # GITHUB.DEPLOYMENT_TYPE: "user"
           
           OLLAMA.API_BASE: ${{ secrets.KAITO_PR_REVIEWER_WORKSPACE_URL }}
           litellm.set_verbose: True
