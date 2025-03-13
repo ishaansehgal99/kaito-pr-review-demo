@@ -15,6 +15,10 @@ jobs:
       contents: write
     name: Run PR Agent on every pull request, respond to user comments
     steps:
+
+    - name: Test Internet Connectivity (Google)
+      run: curl -I https://www.google.com
+
     - name: Check Model Endpoint
       run: |
         curl -X GET "${{ secrets.KAITO_PR_REVIEWER_WORKSPACE_URL }}/models" -v
