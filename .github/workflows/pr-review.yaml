@@ -25,8 +25,8 @@ jobs:
 
           CONFIG.duplicate_examples: "true"
 
-        #   GITHUB.USER_TOKEN: ${{ secrets.API_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.API_TOKEN }}
+          GITHUB.USER_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
           GITHUB.deployment_type: "user"
 
