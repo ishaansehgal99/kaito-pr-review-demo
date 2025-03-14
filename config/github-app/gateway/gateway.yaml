@@ -1,0 +1,11 @@
+apiVersion: gateway.networking.k8s.io/v1beta1
+kind: Gateway
+metadata:
+  name: pr-agent-gateway
+  namespace: default
+spec:
+  gatewayClassName: azure-alb-external  # this GatewayClass was created by ALB controller
+  listeners:
+    - name: http-listener
+      protocol: HTTP
+      port: 80

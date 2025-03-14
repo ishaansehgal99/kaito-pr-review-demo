@@ -1,0 +1,17 @@
+apiVersion: gateway.networking.k8s.io/v1beta1
+kind: HTTPRoute
+metadata:
+  name: pr-agent-app-route
+  namespace: default
+spec:
+  parentRefs:
+    - name: pr-agent
+      namespace: default
+  rules:
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /
+      backendRefs:
+        - name: pr-agent-app-service
+          port: 80

@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pr-agent-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pr-agent-app
+  template:
+    metadata:
+      labels:
+        app: pr-agent-app
+    spec:
+      containers:
+        - name: pr-agent-app
+          image: <AZURE_ACR>/kaito-pr-agent:latest
+          ports:
+            - containerPort: 80
+          # Mount secrets volume
+          volumeMounts:
+            - mountPath: "/app/pr_agent/settings_prod/.secrets.toml"
+              subPath: .secrets.toml
+              name: secrets-volume
+      volumes:
+        - name: secrets-volume
+          secret:
+            secretName: kaito-pr-agent-secrets
