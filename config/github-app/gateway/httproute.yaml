@@ -5,13 +5,13 @@ metadata:
   namespace: default
 spec:
   parentRefs:
-    - name: pr-agent
+    - name: pr-agent-gateway
       namespace: default
   rules:
-    - matches:
-        - path:
-            type: PathPrefix
-            value: /
-      backendRefs:
-        - name: pr-agent-app-service
+    # - matches:
+    #     - path:
+    #         type: PathPrefix
+    #         value: /
+    - backendRefs:
+        - name: pr-agent-service
           port: 80

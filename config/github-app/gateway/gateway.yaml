@@ -3,9 +3,15 @@ kind: Gateway
 metadata:
   name: pr-agent-gateway
   namespace: default
+  annotations:
+    alb.networking.azure.io/alb-namespace: alb-test-infra
+    alb.networking.azure.io/alb-name: alb-test
 spec:
   gatewayClassName: azure-alb-external  # this GatewayClass was created by ALB controller
   listeners:
     - name: http-listener
       protocol: HTTP
       port: 80
+      allowedRoutes:
+        namespaces:
+          from: All
