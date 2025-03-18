@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: pr-agent-app
-          image: aimodelsregistry.azurecr.io/kaito-pr-agent:latest
+          image: <ACR_LINK>/kaito-pr-agent:latest
           livenessProbe:
             httpGet:
               path: /
