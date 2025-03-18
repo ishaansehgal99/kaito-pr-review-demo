@@ -8,10 +8,10 @@ spec:
     - name: pr-agent-gateway
       namespace: default
   rules:
-    - matches:
-        - path:
-            type: PathPrefix
-            value: /
+    # - matches:
+    #     - path:
+    #         type: PathPrefix
+    #         value: /
     - backendRefs:
         - name: pr-agent-service
           port: 80
