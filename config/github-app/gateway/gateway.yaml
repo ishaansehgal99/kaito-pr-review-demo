@@ -4,8 +4,7 @@ metadata:
   name: pr-agent-gateway
   namespace: default
   annotations:
-    alb.networking.azure.io/alb-namespace: alb-test-infra
-    alb.networking.azure.io/alb-name: alb-test
+    alb.networking.azure.io/alb-id: $RESOURCE_ID
 spec:
   gatewayClassName: azure-alb-external  # this GatewayClass was created by ALB controller
   listeners:
@@ -15,3 +14,6 @@ spec:
       allowedRoutes:
         namespaces:
           from: All
+  addresses:
+  - type: alb.networking.azure.io/alb-frontend
+    value: $FRONTEND_NAME
