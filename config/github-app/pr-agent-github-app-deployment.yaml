@@ -14,9 +14,21 @@ spec:
     spec:
       containers:
         - name: pr-agent-app
-          image: <AZURE_ACR>/kaito-pr-agent:latest
+          image: aimodelsregistry.azurecr.io/kaito-pr-agent:latest
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 60
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 60
+            periodSeconds: 10
           ports:
-            - containerPort: 80
+            - containerPort: 3000
           # Mount secrets volume
           volumeMounts:
             - mountPath: "/app/pr_agent/settings_prod/.secrets.toml"
