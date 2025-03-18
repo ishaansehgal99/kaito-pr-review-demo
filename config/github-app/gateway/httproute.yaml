@@ -8,13 +8,26 @@ spec:
     - name: pr-agent-gateway
       namespace: default
   rules:
-  - backendRefs:
-    - name: pr-agent-service
-      port: 80
-    # - matches:
-    #     - path:
-    #         type: PathPrefix
-            # value: /
+    # Rule for GET requests to /
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /
+          method: GET
+      backendRefs:
+        - name: pr-agent-service
+          port: 80
+
+    # Rule for POST requests to /api/v1/github_webhooks
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /api/v1/github_webhooks
+          method: POST
+      backendRefs:
+        - name: pr-agent-service
+          port: 80
+
 
 # apiVersion: gateway.networking.k8s.io/v1beta1
 # kind: HTTPRoute
