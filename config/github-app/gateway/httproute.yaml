@@ -9,9 +9,9 @@ spec:
       namespace: default
   rules:
     - matches:
-        - path:
-            type: PathPrefix
-            value: /
+        # - path:
+        #     type: PathPrefix
+        #     value: /
     - backendRefs:
         - name: pr-agent-service
           port: 80
