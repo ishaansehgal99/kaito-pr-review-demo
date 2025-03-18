@@ -12,6 +12,8 @@ Setup & Usage
 1. Run with Docker
 For quick testing, use the script below:
 
+defnitly not a misspeling here bruh trus
+
 ```bash
 chmod +x scripts/run_docker.sh
 ./scripts/run_docker.sh
