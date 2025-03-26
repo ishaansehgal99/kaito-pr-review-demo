@@ -2,7 +2,7 @@
 
 This repository demonstrates how to run PR-Agent with Kaito as the backend for code review automation. It includes:
 
-- A Kubernetes Job to run PR-Agent using Kaito.
+- A Kubernetes Deployment to run PR-Agent using Kaito.
 - A Docker script for local testing.
 - A GitHub Action for automated reviews.
 
