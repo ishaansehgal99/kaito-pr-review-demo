@@ -44,3 +44,4 @@ spec:
         - name: pr-agent-config-volume
           configMap:
             name: pr-agent-config
+
