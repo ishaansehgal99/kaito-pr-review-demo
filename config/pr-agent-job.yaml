@@ -34,3 +34,5 @@ spec:
           command: ["/bin/sh", "-c"]
           args:
             - "pr-agent --pr_url $PR_URL $OPERATION"
+
+            
