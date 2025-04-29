@@ -31,7 +31,6 @@ Use the provided workflow in `.github/pr-review.yaml` to automate PR reviews.
 
 Configuration
 In all setups, replace the following placeholders with your actual values:
-
 - OLLAMA_API_BASE → Your Kaito workspace URL.
 - GITHUB_USER_TOKEN → Your GitHub API token.
 - PR_URL → The pull request URL to review.
